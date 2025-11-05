@@ -15,6 +15,9 @@ namespace Maatify\MongoActivity\Repository;
 
 use BackedEnum;
 use DateTimeImmutable;
+use Maatify\Common\DTO\PaginationDTO;
+use Maatify\Common\DTO\PaginationResultDTO;
+use Maatify\Common\Helpers\PaginationHelper;
 use Maatify\MongoActivity\Contract\ActivityLogTypeInterface;
 use Maatify\MongoActivity\Contract\AppLogModuleInterface;
 use Maatify\MongoActivity\Contract\UserLogRoleInterface;
@@ -243,7 +246,7 @@ final class ActivityRepository
         int $page = 1,
         int $perPage = 20,
         string $sortOrder = 'desc'
-    ): array {
+    ): PaginationResultDTO {
         $filter = [];
 
         // 🎯 Apply filters if provided
@@ -302,15 +305,19 @@ final class ActivityRepository
         $data = $cursor->toArray();
         $total = $this->collection->countDocuments($filter);
 
-        return [
-            'data' => $data,
-            'meta' => [
-                'page'        => $page,
-                'per_page'    => $perPage,
-                'total'       => $total,
-                'total_pages' => (int)ceil($total / $perPage),
-            ],
-        ];
+        $paginationData = PaginationHelper::paginate(
+            items: range(1, $total),
+            page: $page,
+            perPage: $perPage
+        )['pagination'];
+
+        $pagination = PaginationDTO::fromArray($paginationData);
+
+        return new PaginationResultDTO(
+            data: $data,
+            pagination: $pagination
+        );
+
     }
 
     public function getCollection(): Collection

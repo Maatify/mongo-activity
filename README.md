@@ -408,7 +408,13 @@ $app->post('/log', function ($request, $response) use ($container) {
 * `vlucas/phpdotenv` ≥ 5.6
 
 ---
+## 🪪 License
 
+**[MIT license](LICENSE)** © [Maatify.dev](https://www.maatify.dev)
+
+You’re free to use, modify, and distribute this library with attribution.
+
+---
 ## 🧑‍💻 Maintainer
 
 **Maatify.dev**

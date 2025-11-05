@@ -19,6 +19,7 @@
     "mongodb/mongodb": "^2",
     "psr/log": "^3.0",
     "maatify/psr-logger": "dev-main",
+    "maatify/common": "dev-main",
     "ext-mongodb": "*"
   },
   "require-dev": {
