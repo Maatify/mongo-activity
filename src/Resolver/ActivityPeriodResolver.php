@@ -15,9 +15,9 @@ namespace Maatify\MongoActivity\Resolver;
 
 use BackedEnum;
 use DateTimeImmutable;
-use Maatify\Common\DTO\PaginationDTO;
-use Maatify\Common\DTO\PaginationResultDTO;
-use Maatify\Common\Helpers\PaginationHelper;
+use Maatify\Common\Pagination\DTO\PaginationDTO;
+use Maatify\Common\Pagination\DTO\PaginationResultDTO;
+use Maatify\Common\Pagination\Helpers\PaginationHelper;
 use Maatify\MongoActivity\Contract\ActivityLogTypeInterface;
 use Maatify\MongoActivity\Contract\AppLogModuleInterface;
 use Maatify\MongoActivity\Contract\UserLogRoleInterface;
