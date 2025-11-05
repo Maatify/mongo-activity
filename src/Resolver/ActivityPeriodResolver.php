@@ -15,10 +15,12 @@ namespace Maatify\MongoActivity\Resolver;
 
 use BackedEnum;
 use DateTimeImmutable;
+use Maatify\Common\DTO\PaginationDTO;
+use Maatify\Common\DTO\PaginationResultDTO;
+use Maatify\Common\Helpers\PaginationHelper;
 use Maatify\MongoActivity\Contract\ActivityLogTypeInterface;
 use Maatify\MongoActivity\Contract\AppLogModuleInterface;
 use Maatify\MongoActivity\Contract\UserLogRoleInterface;
-use Maatify\MongoActivity\DTO\SearchResultDTO;
 use MongoDB\BSON\UTCDateTime;
 use MongoDB\Client;
 use RuntimeException;
@@ -111,7 +113,7 @@ final class ActivityPeriodResolver
         int $page = 1,
         int $perPage = 20,
         string $sortOrder = 'desc'
-    ): SearchResultDTO {
+    ): PaginationResultDTO {
         $fromDate = $from ? new DateTimeImmutable($from) : null;
         $toDate   = $to ? new DateTimeImmutable($to) : null;
 
@@ -175,27 +177,35 @@ final class ActivityPeriodResolver
         $data = $cursor->toArray();
         $total = $collection->countDocuments($filter);
 
-        return new SearchResultDTO(
-            data: $data,
+        // 🧮 Build Pagination DTO
+        $paginationArray = PaginationHelper::paginate(
+            items: range(1, $total),
             page: $page,
-            perPage: $perPage,
-            total: $total,
-            totalPages: (int)ceil($total / $perPage),
-            collection: $period['collection'],
-            periodType: $period['type'],
+            perPage: $perPage
+        )['pagination'];
+
+        $pagination = PaginationDTO::fromArray($paginationArray);
+
+        // 🧩 Return standardized result
+        return new PaginationResultDTO(
+            data: $data,
+            pagination: $pagination,
+            meta: [
+                'collection' => $period['collection'],
+                'period_type' => $period['type'],
+                'filters' => array_filter([
+                    'user_id' => $userId,
+                    'role' => $role?->value,
+                    'ref_id' => $refId,
+                    'module' => $module?->value,
+                    'type' => $type?->value,
+                    'keyword' => $keyword,
+                    'from' => $from,
+                    'to' => $to,
+                ]),
+            ]
         );
 
-//        return [
-//            'data' => $data,
-//            'meta' => [
-//                'page'        => $page,
-//                'per_page'    => $perPage,
-//                'total'       => $total,
-//                'total_pages' => (int)ceil($total / $perPage),
-//                'collection'  => $period['collection'],
-//                'period_type' => $period['type'],
-//            ],
-//        ];
     }
 
     /**
