@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Maatify\MongoActivity\Manager;
 
+use DateMalformedStringException;
 use DateTimeImmutable;
 use MongoDB\Client;
 use Maatify\MongoActivity\Enum\QuarterEnum;
@@ -42,6 +43,7 @@ final class ActivityArchiveManager
      * }
      *     Array containing the active database, collection name,
      *     and the start/end date range for the current period.
+     * @throws DateMalformedStringException
      */
     public function currentPeriod(): array
     {

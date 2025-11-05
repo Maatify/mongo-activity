@@ -39,7 +39,7 @@ $manager->record(new ActivityRecordDTO(
     role: UserLogRoleEnum::CUSTOMER,
     type: ActivityLogTypeEnum::VIEW,
     module: AppLogModulesEnum::PRODUCT,
-    action: ActionLogEnum::VIEW_PRODUCT,
+    action: ActionLogEnum::VIEW_PRODUCT->value,
     description: 'Viewed product #302',
     refId: 302,
     ip: $_SERVER['REMOTE_ADDR'],
@@ -52,7 +52,7 @@ $manager->record(new ActivityRecordDTO(
     role: UserLogRoleEnum::CUSTOMER,
     type: ActivityLogTypeEnum::UPDATE,
     module: AppLogModulesEnum::AUTH,
-    action: ActionLogEnum::UPDATE_INFO,
+    action: ActionLogEnum::UPDATE_INFO->value,
     description: 'Changed email to new@domain.com'
 ));
 

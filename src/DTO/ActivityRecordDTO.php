@@ -14,12 +14,9 @@ declare(strict_types=1);
 namespace Maatify\MongoActivity\DTO;
 
 use BackedEnum;
-use Maatify\MongoActivity\Contract\ActionLogInterface;
 use Maatify\MongoActivity\Contract\ActivityLogTypeInterface;
 use Maatify\MongoActivity\Contract\AppLogModuleInterface;
 use Maatify\MongoActivity\Contract\UserLogRoleInterface;
-use Maatify\MongoActivity\Enum\ActivityLogTypeEnum;
-use Maatify\MongoActivity\Enum\UserLogRoleEnum;
 
 /**
  * Class ActivityRecordDTO
@@ -57,7 +54,7 @@ final class ActivityRecordDTO
      * @param UserLogRoleInterface&BackedEnum      $role         Role of the actor (admin, customer, etc.)
      * @param ActivityLogTypeInterface&BackedEnum  $type         Type of activity performed
      * @param AppLogModuleInterface&BackedEnum     $module       Module or system section name
-     * @param ActionLogInterface&BackedEnum        $action       Specific action performed
+     * @param string                               $action       Specific action performed
      * @param string|null                          $description  Optional detailed description
      * @param int|null                             $refId        Optional reference entity ID (e.g., order_id, product_id)
      * @param string|null                          $ip           Request IP address
@@ -68,7 +65,7 @@ final class ActivityRecordDTO
         public readonly UserLogRoleInterface&BackedEnum $role,
         public readonly ActivityLogTypeInterface&BackedEnum $type,
         public readonly AppLogModuleInterface&BackedEnum $module,
-        public readonly ActionLogInterface&BackedEnum  $action,
+        public readonly string  $action,
         public readonly ?string $description = null,
         public readonly ?int $refId = null,
         public readonly ?string $ip = null,

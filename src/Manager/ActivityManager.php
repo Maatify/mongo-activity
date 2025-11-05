@@ -83,7 +83,7 @@ final class ActivityManager
             'role'       => $dto->role->value,
             'type'       => $dto->type->value,
             'module'     => $dto->module->value,
-            'action'     => $dto->action->value,
+            'action'     => $dto->action,
             'description'=> $dto->description,
             'ref_id'     => $dto->refId,
             'ip'         => $dto->ip,
