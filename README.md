@@ -415,5 +415,3 @@ $app->post('/log', function ($request, $response) use ($container) {
 [https://www.Maatify.dev](https://www.Maatify.dev)
 
 ---
-
-هل تحب أضيف كمان جزء خاص بـ **integration مع Slim أو أي DI container** (عشان توضح للمطورين الجداد إزاي يركبوها جوه مشروعهم)؟
