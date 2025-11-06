@@ -161,10 +161,15 @@ final class ActivityPeriodResolver
             ];
         }
 
-        // 📄 Pagination
-        $sortDirection = strtolower($sortOrder) === 'asc' ? 1 : -1;
-        $skip = ($page - 1) * $perPage;
 
+        // 🧮 Get total count before pagination
+        $total = $collection->countDocuments($filter);
+
+        // 📄 Pagination setup
+        $sortDirection = strtolower($sortOrder) === 'asc' ? 1 : -1;
+        $skip = max(0, ($page - 1)) * $perPage;
+
+        // 🧾 Query limited results
         $cursor = $collection->find(
             $filter,
             [
@@ -175,16 +180,19 @@ final class ActivityPeriodResolver
         );
 
         $data = $cursor->toArray();
-        $total = $collection->countDocuments($filter);
 
         // 🧮 Build Pagination DTO
-        $paginationArray = PaginationHelper::paginate(
-            items: range(1, $total),
-            page: $page,
-            perPage: $perPage
-        )['pagination'];
+        $pagination = new PaginationDTO(
+            page      : $page,
+            perPage   : $perPage,
+            total     : $total,
+            totalPages: (int)ceil($total / $perPage),
+            hasNext   : ($page * $perPage) < $total,
+            hasPrev   : $page > 1,
+        );
 
-        $pagination = PaginationDTO::fromArray($paginationArray);
+        // 🧮 Build Pagination Meta
+        $pagination = PaginationHelper::buildMeta($total, $page, $perPage);
 
         // 🧩 Return standardized result
         return new PaginationResultDTO(
