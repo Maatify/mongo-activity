@@ -212,27 +212,19 @@ final class ActivityRepository
      * );
      * ```
      *
-     * @param int|null                                    $userId     Filter by user ID.
-     * @param (UserLogRoleInterface&BackedEnum)|null      $role       Filter by user role.
-     * @param int|null                                    $refId      Filter by reference ID (e.g., related entity).
-     * @param (AppLogModuleInterface&BackedEnum)|null     $module     Filter by application module.
-     * @param (ActivityLogTypeInterface&BackedEnum)|null  $type       Filter by activity type (e.g., create, update, view).
-     * @param string|null                                 $keyword    Keyword to search in `description` or `action` (case-insensitive).
-     * @param string|null                                 $from       Start date (ISO 8601), e.g. '2025-11-01T00:00:00'.
-     * @param string|null                                 $to         End date (ISO 8601), e.g. '2025-11-05T23:59:59'.
-     * @param int                                         $page       Page number for pagination (default: 1).
-     * @param int                                         $perPage    Number of results per page (default: 20).
-     * @param string                                      $sortOrder  Sort direction — 'asc' or 'desc' (default: 'desc').
+     * @param   int|null                                    $userId     Filter by user ID.
+     * @param   (UserLogRoleInterface&BackedEnum)|null      $role       Filter by user role.
+     * @param   int|null                                    $refId      Filter by reference ID (e.g., related entity).
+     * @param   (AppLogModuleInterface&BackedEnum)|null     $module     Filter by application module.
+     * @param   (ActivityLogTypeInterface&BackedEnum)|null  $type       Filter by activity type (e.g., create, update, view).
+     * @param   string|null                                 $keyword    Keyword to search in `description` or `action` (case-insensitive).
+     * @param   string|null                                 $from       Start date (ISO 8601), e.g. '2025-11-01T00:00:00'.
+     * @param   string|null                                 $to         End date (ISO 8601), e.g. '2025-11-05T23:59:59'.
+     * @param   int                                         $page       Page number for pagination (default: 1).
+     * @param   int                                         $perPage    Number of results per page (default: 20).
+     * @param   string                                      $sortOrder  Sort direction — 'asc' or 'desc' (default: 'desc').
      *
-     * @return array{
-     *     data: array,
-     *     meta: array{
-     *         page: int,
-     *         per_page: int,
-     *         total: int,
-     *         total_pages: int
-     *     }
-     * }
+     * @return PaginationResultDTO
      */
     public function search(
         ?int $userId = null,

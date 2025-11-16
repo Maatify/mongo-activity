@@ -1,10 +1,21 @@
 ![**Maatify.dev**](https://www.maatify.dev/assets/img/img/maatify_logo_white.svg)
 ---
-[![Current version](https://img.shields.io/packagist/v/maatify/mongo-activity)](https://packagist.org/packages/maatify/mongo-activity)
-[![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/maatify/mongo-activity)](https://packagist.org/packages/maatify/mongo-activity)
-[![Monthly Downloads](https://img.shields.io/packagist/dm/maatify/mongo-activity)](https://packagist.org/packages/maatify/mongo-activity/stats)
-[![Total Downloads](https://img.shields.io/packagist/dt/maatify/mongo-activity)](https://packagist.org/packages/maatify/mongo-activity/stats)
-[![License](https://img.shields.io/github/license/maatify/mongo-activity)](https://github.com/maatify/mongo-activity/blob/main/LICENSE)
+
+[![Version](https://img.shields.io/packagist/v/maatify/mongo-activity?label=Version&color=4C1)](https://packagist.org/packages/maatify/mongo-activity)
+[![PHP](https://img.shields.io/packagist/php-v/maatify/mongo-activity?label=PHP&color=777BB3)](https://packagist.org/packages/maatify/mongo-activity)
+[![Build](https://github.com/Maatify/mongo-activity/actions/workflows/test.yml/badge.svg?label=Build&color=brightgreen)](https://github.com/Maatify/mongo-activity/actions/workflows/test.yml)
+
+[![Monthly Downloads](https://img.shields.io/packagist/dm/maatify/mongo-activity?label=Monthly%20Downloads&color=00A8E8)](https://packagist.org/packages/maatify/mongo-activity)
+[![Total Downloads](https://img.shields.io/packagist/dt/maatify/mongo-activity?label=Total%20Downloads&color=2AA9E0)](https://packagist.org/packages/maatify/mongo-activity)
+
+[![Stars](https://img.shields.io/github/stars/Maatify/mongo-activity?label=Stars&color=FFD43B&cacheSeconds=3600)](https://github.com/Maatify/mongo-activity/stargazers)
+[![License](https://img.shields.io/github/license/Maatify/mongo-activity?label=License&color=blueviolet)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Stable-success?style=flat-square)]()
+[![Code Quality](https://img.shields.io/codefactor/grade/github/Maatify/mongo-activity/main?color=brightgreen)](https://www.codefactor.io/repository/github/Maatify/mongo-activity)
+
+[![Changelog](https://img.shields.io/badge/Changelog-View-blue)](CHANGELOG.md)
+[![Security](https://img.shields.io/badge/Security-Policy-important)](SECURITY.md)
+
 
 # 📊 maatify/mongo-activity
 
