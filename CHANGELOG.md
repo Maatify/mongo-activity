@@ -67,9 +67,6 @@ All notable changes to this project will be documented in this file.
 **© 2025 Maatify.dev**  
 Engineered by **Mohamed Abdulalim ([@megyptm](https://github.com/megyptm))** — https://www.maatify.dev
 
-📘 Full documentation & source code:  
-https://github.com/Maatify/data-adapters
-
 ---
 
 <p align="center">
