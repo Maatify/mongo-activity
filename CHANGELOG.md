@@ -11,6 +11,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.0.1] — 2025-11-16
+
+### 🔧 Fixed
+- Switched all Maatify dependencies to stable tagged releases.
+- Removed dev-only dependency constraints for Composer compatibility.
+
 ## [1.0.0] — 2025-11-16
 
 ### 🎉 Initial Stable Release
