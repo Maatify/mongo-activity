@@ -15,11 +15,11 @@
     }
   },
   "require": {
-    "php": "^8.4",
+    "php": "^8.2",
     "mongodb/mongodb": "^2",
     "psr/log": "^3.0",
-    "maatify/psr-logger": "dev-main",
-    "maatify/common": "dev-main",
+    "maatify/psr-logger": "^1",
+    "maatify/common": "^2",
     "ext-mongodb": "*"
   },
   "require-dev": {
